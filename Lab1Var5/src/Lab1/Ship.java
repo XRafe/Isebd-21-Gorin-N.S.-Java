@@ -29,15 +29,22 @@ import java.awt.Color;
 
 
         public static int MaxSpeed;
-
+        void getMaxSpeed(int MaxSpeed) {Ship.MaxSpeed=MaxSpeed;} 
+        int setMaxSpeed() {return Ship.MaxSpeed;}
 
         public static float Weight;
+        void getWeight(float Weight) {Ship.Weight=Weight;} 
+        float setWeight() {return Ship.Weight;}
 
 
         public static Color MainColor;
+        void getMainColor(Color MainColor) {Ship.MainColor=MainColor;} 
+        Color setMainColor() {return Ship.MainColor;}
 
 
         public Color DopColor;
+        void getDopColor(Color DopColor) {this.DopColor=DopColor;} 
+        Color setDopColor() {return this.DopColor;}
 
 
         public Ship(int maxSpeed, float weight, Color mainColor, Color dopColor)
