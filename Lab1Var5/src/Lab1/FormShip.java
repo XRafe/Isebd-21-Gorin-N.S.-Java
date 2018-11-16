@@ -14,8 +14,6 @@ import java.awt.event.ActionEvent;
 public class FormShip {
 
 	
-	//хуйатвлподрвалд
-	
 	public static boolean DrawShip = false;
 	private JFrame frame;
 	private JPanel Panel;
