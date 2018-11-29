@@ -4,11 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 
-
-
-
-
-
     public class Ship
     {
         
@@ -46,12 +41,11 @@ import java.awt.Graphics;
         	
         }
         
-        public Ship(int maxSpeed, float weight, Color mainColor, Color dopColor)
+        public Ship(int maxSpeed, float weight, Color mainColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = mainColor;
-            DopColor = dopColor;
         }
 
 
