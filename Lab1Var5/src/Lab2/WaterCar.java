@@ -6,22 +6,22 @@ import java.awt.Graphics;
 public class WaterCar extends Ship {
 	
 	
-    public Color DopColor;
+    public static Color DopColor;
     void getDopColor(Color DopColor) {this.DopColor=DopColor;} 
     Color setDopColor() {return this.DopColor;} 
 
     
-    public boolean Wheel;
+    public static boolean Wheel;
     void getWheel(boolean Wheel) {this.Wheel=Wheel;} 
     boolean setWheel() {return this.Wheel;} 
 
     
-    public boolean Decoreation;
+    public static boolean Decoreation;
     void getDecoreation(boolean Decoreation) {this.Decoreation=Decoreation;} 
     boolean setDecoreation() {return this.Decoreation;} 
 
 
-    public boolean Whistle;
+    public static boolean Whistle;
     void getWhistle(boolean Whistle) {this.Whistle=Whistle;} 
     boolean setWhistle() {return this.Whistle;} 
 

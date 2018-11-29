@@ -7,6 +7,7 @@ import java.awt.Graphics;
     public class Ship extends Vehicle
     {
 
+    	
         protected final int shipWidth = 240;
 
 
@@ -81,7 +82,7 @@ import java.awt.Graphics;
    		 if (FormShip.DrawShip) {
            	 g.setColor(Color.GREEN);
                 g.fillRect(_startPosX + 80, _startPosY - 6, 120, 40);
-                g.setColor(Ship.MainColor);
+                g.setColor(MainColor);
                 g.fillRect(_startPosX + 90, _startPosY - 26, 90, 20);
                 g.setColor(Color.RED);
                 g.fillRect(_startPosX + 110, _startPosY - 56, 30, 30);

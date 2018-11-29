@@ -13,12 +13,13 @@ import java.awt.event.ActionEvent;
 
 public class FormShip {
 
-	
-	public static boolean DrawShip = false;
+
+
 	private JFrame frame;
 	private JPanel Panel;
-	
 	Ship Ship = new Ship();
+	
+	protected static boolean DrawShip = false;
 	
 	/**
 	 * Launch the application.
@@ -67,8 +68,11 @@ public class FormShip {
 		btnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Random rnd = new Random();
-                Ship Ship = new Ship(rnd.nextInt(200) + 100, rnd.nextInt(1000) + 1000, Color.BLUE);
-				Ship.SetPosition(rnd.nextInt(90) + 100, rnd.nextInt(90) + 100, Panel.getWidth(), Panel.getHeight());
+		        WaterCar.Wheel = false;
+		        WaterCar.Decoreation = false;
+		        WaterCar.Whistle = false;
+				Ship = new Ship(rnd.nextInt(200) + 100, rnd.nextInt(1000) + 1000, Color.BLUE);
+                Ship.SetPosition(rnd.nextInt(90) + 100, rnd.nextInt(90) + 100, Panel.getWidth(), Panel.getHeight());
 				DrawShip = true;
 				Draw();
 				 
@@ -125,7 +129,7 @@ public class FormShip {
 		btnCreateTun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Random rnd = new Random();
-                WaterCar WaterCar = new WaterCar(rnd.nextInt(200) + 100, rnd.nextInt(1000) + 1000, Color.BLUE, Color.RED, true, true, true);
+                WaterCar WaterCar = new WaterCar(rnd.nextInt(200) + 100, rnd.nextInt(1000) + 1000, Color.BLUE, Color.ORANGE, true, true, true);
                 WaterCar.SetPosition(rnd.nextInt(90) + 100, rnd.nextInt(90) + 100, Panel.getWidth(), Panel.getHeight());
 				DrawShip = true;
 				Draw();
