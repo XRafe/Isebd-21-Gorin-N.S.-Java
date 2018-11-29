@@ -7,23 +7,23 @@ public class WaterCar extends Ship {
 	
 	
     public static Color DopColor;
-    void getDopColor(Color DopColor) {this.DopColor=DopColor;} 
-    Color setDopColor() {return this.DopColor;} 
+    void getDopColor(Color DopColor) {WaterCar.DopColor=DopColor;} 
+    Color setDopColor() {return WaterCar.DopColor;} 
 
     
     public static boolean Wheel;
-    void getWheel(boolean Wheel) {this.Wheel=Wheel;} 
-    boolean setWheel() {return this.Wheel;} 
+    void getWheel(boolean Wheel) {WaterCar.Wheel=Wheel;} 
+    boolean setWheel() {return WaterCar.Wheel;} 
 
     
     public static boolean Decoreation;
-    void getDecoreation(boolean Decoreation) {this.Decoreation=Decoreation;} 
-    boolean setDecoreation() {return this.Decoreation;} 
+    void getDecoreation(boolean Decoreation) {WaterCar.Decoreation=Decoreation;} 
+    boolean setDecoreation() {return WaterCar.Decoreation;} 
 
 
     public static boolean Whistle;
-    void getWhistle(boolean Whistle) {this.Whistle=Whistle;} 
-    boolean setWhistle() {return this.Whistle;} 
+    void getWhistle(boolean Whistle) {WaterCar.Whistle=Whistle;} 
+    boolean setWhistle() {return WaterCar.Whistle;} 
 
     public WaterCar() 
     {
