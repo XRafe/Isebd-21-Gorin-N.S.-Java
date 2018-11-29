@@ -12,9 +12,10 @@ import java.util.Random;
 import java.awt.event.ActionEvent;
 
 public class FormShip {
-
+	public Ship Ship;
+	 
 	public static boolean DrawShip = false;
-	private JFrame frame;
+	JFrame frame;
 	private JPanel Panel;
 	
 	/**
@@ -64,7 +65,7 @@ public class FormShip {
 		btnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Random rnd = new Random();
-                Ship Ship = new Ship(rnd.nextInt(200) + 100, rnd.nextInt(1000) + 1000, Color.BLUE, Color.BLUE);
+                Ship = new Ship(rnd.nextInt(200) + 100, rnd.nextInt(1000) + 1000, Color.BLUE, Color.BLUE);
 				Ship.SetPosition(rnd.nextInt(90) + 100, rnd.nextInt(90) + 100, Panel.getWidth(), Panel.getHeight());
 				DrawShip = true;
 				Draw();

@@ -1,6 +1,7 @@
 package Lab1;
 
 import java.awt.Color;
+import java.awt.Graphics;
 
 
 
@@ -46,7 +47,11 @@ import java.awt.Color;
         void getDopColor(Color DopColor) {this.DopColor=DopColor;} 
         Color setDopColor() {return this.DopColor;}
 
-
+        public Ship()
+        {
+         
+        }
+        
         public Ship(int maxSpeed, float weight, Color mainColor, Color dopColor)
         {
             MaxSpeed = maxSpeed;
@@ -99,7 +104,42 @@ import java.awt.Color;
                     }
                     break;
             }
+            
+            
         }
+        
+    	public void DrawShip(Graphics g) {
+
+    		 int yline = -5;
+
+
+    		 if (FormShip.DrawShip) {
+            	 g.setColor(Color.GREEN);
+                 g.fillRect(Ship._startPosX + 80, Ship._startPosY - 6, 120, 40);
+                 g.setColor(Ship.MainColor);
+                 g.fillRect(Ship._startPosX + 90, Ship._startPosY - 26, 90, 20);
+                 g.setColor(Color.RED);
+                 g.fillRect(Ship._startPosX + 110, Ship._startPosY - 56, 30, 30);
+                 g.setColor(Color.GREEN);
+                 g.drawLine(Ship._startPosX + 80, Ship._startPosY + 30, Ship._startPosX + 30, Ship._startPosY - 30);
+                 while (yline < 35)
+                 {
+                     g.drawLine(Ship._startPosX + 80, Ship._startPosY + yline, Ship._startPosX + 30, Ship._startPosY - 30);
+
+                     g.drawLine(Ship._startPosX + 200, Ship._startPosY + yline, Ship._startPosX + 250, Ship._startPosY - 30);
+                     yline++;
+                 }
+
+                 g.drawLine(Ship._startPosX + 200, Ship._startPosY + 30, Ship._startPosX + 250, Ship._startPosY - 30);
+
+    		 }
+             
+
+                
+    		
+    	
+             
+    	}
 
 
      }
