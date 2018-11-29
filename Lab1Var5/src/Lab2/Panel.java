@@ -5,10 +5,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Panel extends JPanel {
-	WaterCar WaterCar = new WaterCar();
+	Ship Ship = new Ship();
 	
 	public void paint(Graphics g) {
 		super.paint(g);
-		WaterCar.DrawShip(g);
+		Ship.DrawShip(g);
 	}
 }

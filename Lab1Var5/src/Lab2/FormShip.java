@@ -18,6 +18,8 @@ public class FormShip {
 	private JFrame frame;
 	private JPanel Panel;
 	
+	Ship Ship = new Ship();
+	
 	/**
 	 * Launch the application.
 	 */

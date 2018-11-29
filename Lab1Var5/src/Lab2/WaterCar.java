@@ -7,13 +7,23 @@ public class WaterCar extends Ship {
 	
 	
     public Color DopColor;
+    void getDopColor(Color DopColor) {this.DopColor=DopColor;} 
+    Color setDopColor() {return this.DopColor;} 
 
+    
     public boolean Wheel;
+    void getWheel(boolean Wheel) {this.Wheel=Wheel;} 
+    boolean setWheel() {return this.Wheel;} 
+
     
     public boolean Decoreation;
-    
+    void getDecoreation(boolean Decoreation) {this.Decoreation=Decoreation;} 
+    boolean setDecoreation() {return this.Decoreation;} 
+
 
     public boolean Whistle;
+    void getWhistle(boolean Whistle) {this.Whistle=Whistle;} 
+    boolean setWhistle() {return this.Whistle;} 
 
     public WaterCar() 
     {
@@ -38,34 +48,34 @@ public class WaterCar extends Ship {
 
         super.DrawShip(g);
 
-        while (xline < 80)
-        {
-        	g.setColor(Color.GREEN);
-            g.drawLine(_startPosX + 100 + xline, _startPosY - 20, _startPosX + 80 + xline, _startPosY + 25);
-            xline += 5;
 
-        }
         if (Decoreation)
         {
+            while (xline < 80)
+            {
+            	g.setColor(Color.GREEN);
+                g.drawLine(_startPosX + 100 + xline, _startPosY - 20, _startPosX + 80 + xline, _startPosY + 25);
+                xline += 5;
 
+            }
         }
 
     	g.setColor(DopColor);
-        while (yline < 35)
-        {
-            g.drawLine(_startPosX + 170, _startPosY - 15, _startPosX + 210, _startPosY - 35 + yline);
-            yline += 1;
 
-        }
         if (Whistle)
         {
+            while (yline < 35)
+            {
+                g.drawLine(_startPosX + 170, _startPosY - 15, _startPosX + 210, _startPosY - 35 + yline);
+                yline += 1;
 
+            }
         }
-    	g.setColor(DopColor);
-        g.fillOval(_startPosX + 70, _startPosY - 10, 60, 60);
         if (Wheel)
         {
 
+        	g.setColor(DopColor);
+            g.fillOval(_startPosX + 70, _startPosY - 10, 60, 60);
         }
 
 
