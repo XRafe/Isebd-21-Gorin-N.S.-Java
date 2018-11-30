@@ -1,4 +1,4 @@
-package Lab2;
+package Lab3;
 
 import java.awt.Color;
 import java.awt.Graphics;
