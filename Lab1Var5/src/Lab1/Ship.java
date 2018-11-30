@@ -26,7 +26,7 @@ import java.awt.Graphics;
         private final static int shipWidth = 240;
 
 
-        private final static int shipHeight = 60;
+        private final static int shipHeight = 30;
 
 
         public static int MaxSpeed;
