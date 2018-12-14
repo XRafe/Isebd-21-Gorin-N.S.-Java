@@ -70,7 +70,10 @@ public class FormParking {
 		btnParkingSt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Color mainColor = JColorChooser.showDialog(null, "Choose a color", Color.GRAY);
-				ITransport ship = new Ship(300, 1000, mainColor);
+				Ship ship = new Ship(100, 1000, mainColor);
+				WaterCar.Wheel = false;
+				WaterCar.Whistle = false;
+				WaterCar.Decoreation = false;
 				int place = parking.addoperator(ship);
 				panelParking.repaint();
 
@@ -84,7 +87,7 @@ public class FormParking {
 			public void actionPerformed(ActionEvent e) {
 				Color mainColor = JColorChooser.showDialog(null, "Choose a color", Color.GRAY);
 				Color dopColor = JColorChooser.showDialog(null, "Choose a color", Color.GRAY);
-				WaterCar watercar = new WaterCar(100, 1000, mainColor, dopColor, true, true, true);
+				WaterCar watercar = new WaterCar(300, 1000, mainColor, dopColor, true, true, true);
 				int place = parking.addoperator(watercar);
 				panelParking.repaint();
 
