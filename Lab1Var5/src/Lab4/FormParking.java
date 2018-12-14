@@ -5,19 +5,24 @@ import java.awt.EventQueue;
 
 
 import javax.swing.JFrame;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JList;
 
 public class FormParking {
 
 	private JFrame frame;
-	private Parking<ITransport> parking;
+	private MultiLevelParking parking;
+	private final int countLevel = 3;
+	
 	private JTextField textField;
 	PanelParking panelParking = new PanelParking();
 
@@ -55,16 +60,29 @@ public class FormParking {
 		frame.getContentPane().setLayout(null);
 
 		panelParking = new PanelParking();
-		parking = new Parking<>(16, panelParking.getWidth(), panelParking.getHeight());
-		panelParking.setParking(parking);
+		parking = new MultiLevelParking(countLevel, panelParking.getWidth(), panelParking.getHeight());
+		panelParking.setParking(parking.get(0));
 		panelParking.setBounds(10, 11, 751, 504);
 		frame.getContentPane().add(panelParking);
 
 		PanelTakeShip PanelTakeShip = new PanelTakeShip();
 		PanelTakeShip.setBorder(null);
-		PanelTakeShip.setBounds(771, 282, 203, 195);
+		PanelTakeShip.setBounds(771, 368, 203, 147);
 		frame.getContentPane().add(PanelTakeShip);
 		
+		DefaultListModel listModel = new DefaultListModel();
+		for (int i = 1; i <= countLevel; i++) {
+			listModel.addElement("Уровень " + i);
+		}
+		JList list = new JList(listModel);
+		list.setBounds(771, 36, 191, 126);
+		frame.getContentPane().add(list);
+		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+		list.setSelectedIndex(0);
+		list.addListSelectionListener(e -> {
+			panelParking.setParking(parking.get(list.getSelectedIndex()));
+			panelParking.repaint();
+		});
 		
 		JButton btnParkingSt = new JButton("\u041F\u0440\u0438\u043F\u0430\u0440\u043A\u043E\u0432\u0430\u0442\u044C \u043A\u043E\u0440\u0430\u0431\u043B\u044C");
 		btnParkingSt.addActionListener(new ActionListener() {
@@ -74,12 +92,12 @@ public class FormParking {
 				WaterCar.Wheel = false;
 				WaterCar.Whistle = false;
 				WaterCar.Decoreation = false;
-				int place = parking.addoperator(ship);
+				int place = parking.get(list.getSelectedIndex()).addoperator(ship);
 				panelParking.repaint();
 
 			}
 		});
-		btnParkingSt.setBounds(771, 13, 193, 43);
+		btnParkingSt.setBounds(771, 173, 193, 43);
 		frame.getContentPane().add(btnParkingSt);
 		
 		JButton btnParkingTun = new JButton("\u041F\u0440\u0438\u043F\u0430\u0440\u043A\u043E\u0432\u0430\u0442\u044C\r\n\u0442\u044E\u043D\u0438\u043D\u0433 \u043A\u043E\u0440\u0430\u0431\u043B\u044C");
@@ -88,13 +106,13 @@ public class FormParking {
 				Color mainColor = JColorChooser.showDialog(null, "Choose a color", Color.GRAY);
 				Color dopColor = JColorChooser.showDialog(null, "Choose a color", Color.GRAY);
 				WaterCar watercar = new WaterCar(300, 1000, mainColor, dopColor, true, true, true);
-				int place = parking.addoperator(watercar);
+				int place = parking.get(list.getSelectedIndex()).addoperator(watercar);
 				panelParking.repaint();
 
 			}
 		});
 		btnParkingTun.setToolTipText("");
-		btnParkingTun.setBounds(771, 70, 193, 43);
+		btnParkingTun.setBounds(771, 227, 193, 43);
 		frame.getContentPane().add(btnParkingTun);
 		
 
@@ -103,7 +121,7 @@ public class FormParking {
 			public void actionPerformed(ActionEvent e) {
 				int planePosition = Integer.parseInt(textField.getText());
 				ITransport WaterCar;
-				if ((WaterCar = parking.removeoperator(planePosition)) != null) {
+				if ((WaterCar = parking.get(list.getSelectedIndex()).removeoperator(planePosition)) != null) {
 					WaterCar.SetPosition(0, 60, PanelTakeShip.getWidth(), PanelTakeShip.getHeight());
 					PanelTakeShip.setShip(WaterCar);
 				} else {
@@ -113,21 +131,27 @@ public class FormParking {
 				panelParking.repaint();
 			}
 		});
-		btnPickUp.setBounds(776, 248, 91, 23);
+		btnPickUp.setBounds(771, 334, 91, 23);
 		frame.getContentPane().add(btnPickUp);
 		
 		textField = new JTextField();
-		textField.setBounds(836, 217, 31, 20);
+		textField.setBounds(831, 306, 31, 20);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		JLabel label_Place = new JLabel("\u041C\u0435\u0441\u0442\u043E:");
-		label_Place.setBounds(780, 220, 46, 14);
+		label_Place.setBounds(771, 309, 46, 14);
 		frame.getContentPane().add(label_Place);
 		
 		JLabel label_pickup = new JLabel("\u0417\u0430\u0431\u0440\u0430\u0442\u044C \u043A\u043E\u0440\u0430\u0431\u043B\u044C:");
-		label_pickup.setBounds(776, 183, 91, 14);
+		label_pickup.setBounds(771, 281, 91, 14);
 		frame.getContentPane().add(label_pickup);
+		
+		JLabel label_lvl = new JLabel("\u0423\u0440\u043E\u0432\u043D\u0438:");
+		label_lvl.setBounds(771, 11, 46, 14);
+		frame.getContentPane().add(label_lvl);
+		
+
 		
 
 		
