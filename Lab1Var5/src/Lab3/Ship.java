@@ -79,24 +79,23 @@ import java.awt.Graphics;
    		 int yline = -5;
 
 
-   		 if (FormShip.DrawShip) {
+
            	 g.setColor(Color.GREEN);
-                g.fillRect(_startPosX + 80, _startPosY - 6, 120, 40);
+                g.fillRect(_startPosX + 40, _startPosY + 19, 120, 40);
                 g.setColor(MainColor);
-                g.fillRect(_startPosX + 90, _startPosY - 26, 90, 20);
+                g.fillRect(_startPosX + 50, _startPosY - 1, 90, 20);
                 g.setColor(Color.RED);
-                g.fillRect(_startPosX + 110, _startPosY - 56, 30, 30);
+                g.fillRect(_startPosX + 70, _startPosY - 31, 30, 30);
                 g.setColor(Color.GREEN);
-                g.drawLine(_startPosX + 80, _startPosY + 30, _startPosX + 30, _startPosY - 30);
                 while (yline < 35)
                 {
-                    g.drawLine(_startPosX + 80, _startPosY + yline, _startPosX + 30, _startPosY - 30);
+                    g.drawLine(_startPosX + 40, _startPosY + yline + 25, _startPosX - 10, _startPosY - 5);
 
-                    g.drawLine(_startPosX + 200, _startPosY + yline, _startPosX + 250, _startPosY - 30);
+                    g.drawLine(_startPosX + 160, _startPosY + yline + 25, _startPosX + 210, _startPosY - 5);
                     yline++;
                 }
 
-                g.drawLine(_startPosX + 200, _startPosY + 30, _startPosX + 250, _startPosY - 30);
+                g.drawLine(_startPosX + 160, _startPosY + 55, _startPosX + 210, _startPosY - 5);
 
    		 }
             
@@ -107,7 +106,7 @@ import java.awt.Graphics;
             
    	}
 
-     }
+     
     
     
 	

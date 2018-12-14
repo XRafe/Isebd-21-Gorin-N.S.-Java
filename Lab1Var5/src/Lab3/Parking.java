@@ -1,104 +1,97 @@
 package Lab3;
 
-public class Parking<T> where T : class, ITransport
-{
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.ArrayList;
 
-    private T[] _places;
-    
+public class Parking<T extends ITransport> {
 
-    private int PictureWidth;
-    
+	public ArrayList<T> _places;
 
-    private int PictureHeight;
-    
+	protected int PictureWidth;
 
-    private int _placeSizeWidth = 200;
-    
+	void getPictureWidth(int PictureWidth) {
+		this.PictureWidth = PictureWidth;
+	}
 
-    private int _placeSizeHeight = 100;
+	int setPictureWidth() {
+		return this.PictureWidth;
+	}
 
+	protected int PictureHeight;
 
-    public Parking(int sizes, int pictureWidth, int pictureHeight)
-    {
-        _places = new T[sizes];
-        PictureWidth = pictureWidth;
-        PictureHeight = pictureHeight;
-        for (int i = 0; i < _places.Length; i++)
-        {
-            _places[i] = null;
-        }
-    }
-    
+	void getPictureHeight(int PictureHeight) {
+		this.PictureHeight = PictureHeight;
+	}
 
-    public static int operator +(Parking<T> p, T ship)
-    {
-        for (int i = 0; i < p._places.Length; i++)
-        {
-            if (p.CheckFreePlace(i))
-            {
-                p._places[i] = ship;
-                p._places[i].SetPosition(5 + i / 5 * p._placeSizeWidth + 5,
-                 i % 5 * p._placeSizeHeight + 15, p.PictureWidth,
-                p.PictureHeight);
-                return i;
-            }
-        }
-        return -1;
-    }
-    
+	int setPictureHeight() {
+		return this.PictureHeight;
+	}
 
-            public static T operator -(Parking<T> p, int index)
-    {
-        if (index < 0 || index > p._places.Length)
-        {
-            return null;
-        }
-        if (!p.CheckFreePlace(index))
-        {
-            T ship = p._places[index];
-            p._places[index] = null;
-            return ship;
-        }
-        return null;
-    }
-    
+	private int _placeSizeWidth = 260;
+	private int _placeSizeHeight = 120;
 
-private bool CheckFreePlace(int index)
-    {
-        return _places[index] == null;
-    }
+	public Parking() {
 
+	}
 
-    public void Draw(Graphics g)
-    {
-        DrawMarking(g);
-        for (int i = 0; i < _places.Length; i++)
-        {
-            if (!CheckFreePlace(i))
-            {
+	
+	public Parking(int sizes, int pictureWidth, int pictureHeight) {
+		_places = new ArrayList<T>();
+		PictureWidth = pictureWidth;
+		PictureHeight = pictureHeight;
+		for (int i = 0; i < sizes; i++) {
+			_places.add(null);
+		}
+	}
 
-                _places[i].DrawShip(g);
-            }
-        }
-    }
+	public int addoperator(T ship) {
+		for (int i = 0; i < _places.size(); i++) {
+			if (CheckFreePlace(i)) {
+				_places.add(i, ship);
+				_places.get(i).SetPosition(5 + i / 4 * _placeSizeWidth + 5, i % 4 * _placeSizeHeight + 60, PictureWidth,
+						PictureHeight);
+				return i;
+			}
+		}
+		return -1;
+	}
 
+	public T removeoperator(int index) {
+		if (index < 0 || index > _places.size()) {
+			return null;
+		}
+		if (!CheckFreePlace(index)) {
+			T ship = _places.get(index);
+			_places.set(index, null);
+			return ship;
+		}
+		return null;
+	}
 
-    private void DrawMarking(Graphics g)
-    {
+	private boolean CheckFreePlace(int index) {
+		return _places.get(index) == null;
+	}
 
-    
-        g.DrawRectangle(0, 0, (_places.Length / 5) * _placeSizeWidth, 480);
-        for (int i = 0; i < _places.Length / 5; i++)
-        {
+	public void Draw(Graphics g) {
+		DrawMarking(g);
+		for (int i = 0; i < _places.size(); i++) {
+			if (!CheckFreePlace(i)) {
+				_places.get(i).DrawShip(g);
+			}
+		}
+	}
 
-            for (int j = 0; j < 6; ++j)
-            {
+	private void DrawMarking(Graphics g) {
+		g.setColor(Color.BLUE);
+		g.drawRect(0, 0, (_places.size() / 5) * _placeSizeWidth, 480);
+		for (int i = 0; i < _places.size() / 5; i++) {
 
-                g.DrawLine(pen, i * _placeSizeWidth, j * _placeSizeHeight,
-                i * _placeSizeWidth + 110, j * _placeSizeHeight);
-            }
-            g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth, 400);
-        }
-    }
-
+			for (int j = 0; j < 6; ++j) {
+				g.setColor(Color.BLUE);
+				g.drawLine(i * _placeSizeWidth, j * _placeSizeHeight, i * _placeSizeWidth + 110, j * _placeSizeHeight);
+			}
+			g.drawLine(i * _placeSizeWidth, 0, i * _placeSizeWidth, 400);
+		}
+	}
 }
