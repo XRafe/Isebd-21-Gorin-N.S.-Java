@@ -98,12 +98,7 @@ import java.awt.Graphics;
                 g.drawLine(_startPosX + 160, _startPosY + 55, _startPosX + 210, _startPosY - 5);
 
    		 }
-            
-
-               
-   		
-   	
-            
+      
    	}
 
      

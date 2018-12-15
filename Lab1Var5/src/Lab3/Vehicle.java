@@ -6,10 +6,10 @@ import java.awt.Graphics;
 public abstract class Vehicle implements ITransport
 {
 
-    protected static int _startPosX;
+    protected int _startPosX;
 
 
-    protected static int _startPosY;
+    protected int _startPosY;
     /// <summary>
     /// Ширина окна отрисовки
     /// </summary>
