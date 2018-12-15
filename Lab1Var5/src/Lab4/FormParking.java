@@ -35,6 +35,7 @@ public class FormParking {
 				try {
 					FormParking window = new FormParking();
 					window.frame.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -61,15 +62,6 @@ public class FormParking {
 
 		panelParking = new PanelParking();
 		parking = new MultiLevelParking(countLevel, panelParking.getWidth(), panelParking.getHeight());
-		panelParking.setParking(parking.get(0));
-		panelParking.setBounds(10, 11, 751, 504);
-		frame.getContentPane().add(panelParking);
-
-		PanelTakeShip PanelTakeShip = new PanelTakeShip();
-		PanelTakeShip.setBorder(null);
-		PanelTakeShip.setBounds(771, 368, 203, 147);
-		frame.getContentPane().add(PanelTakeShip);
-		
 		DefaultListModel listModel = new DefaultListModel();
 		for (int i = 1; i <= countLevel; i++) {
 			listModel.addElement("Уровень " + i);
@@ -83,6 +75,16 @@ public class FormParking {
 			panelParking.setParking(parking.get(list.getSelectedIndex()));
 			panelParking.repaint();
 		});
+		panelParking.setParking(parking.get(0));
+		panelParking.setBounds(10, 11, 751, 504);
+		frame.getContentPane().add(panelParking);
+
+		PanelTakeShip PanelTakeShip = new PanelTakeShip();
+		PanelTakeShip.setBorder(null);
+		PanelTakeShip.setBounds(771, 368, 203, 147);
+		frame.getContentPane().add(PanelTakeShip);
+		
+
 		
 		JButton btnParkingSt = new JButton("\u041F\u0440\u0438\u043F\u0430\u0440\u043A\u043E\u0432\u0430\u0442\u044C \u043A\u043E\u0440\u0430\u0431\u043B\u044C");
 		btnParkingSt.addActionListener(new ActionListener() {

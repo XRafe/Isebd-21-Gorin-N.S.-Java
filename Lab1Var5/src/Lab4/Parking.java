@@ -62,12 +62,11 @@ public class Parking<T extends ITransport> {
 	}
 
 	public T removeoperator(int index) {
-		index -= 1;
 		if (!CheckFreePlace(index))
 		{
-			T fighter = _places.get(index);
+			T ship = _places.get(index);
 			_places.remove(index);
-			return fighter;
+			return ship;
 		}
 		return null;
 	
