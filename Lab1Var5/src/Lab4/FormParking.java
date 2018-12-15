@@ -9,6 +9,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.JLabel;
@@ -43,6 +44,7 @@ public class FormParking {
 		});
 	}
 	
+	
 
 	/**
 	 * Create the application.
@@ -61,7 +63,18 @@ public class FormParking {
 		frame.getContentPane().setLayout(null);
 
 		panelParking = new PanelParking();
+		panelParking.setBackground(Color.WHITE);
 		parking = new MultiLevelParking(countLevel, panelParking.getWidth(), panelParking.getHeight());
+		
+		panelParking.setParking(parking.get(0));
+		panelParking.setBounds(10, 11, 751, 504);
+		frame.getContentPane().add(panelParking);
+
+		PanelTakeShip PanelTakeShip = new PanelTakeShip();
+		PanelTakeShip.setBorder(null);
+		PanelTakeShip.setBounds(771, 368, 203, 147);
+		frame.getContentPane().add(PanelTakeShip);
+		
 		DefaultListModel listModel = new DefaultListModel();
 		for (int i = 1; i <= countLevel; i++) {
 			listModel.addElement("Уровень " + i);
@@ -75,16 +88,6 @@ public class FormParking {
 			panelParking.setParking(parking.get(list.getSelectedIndex()));
 			panelParking.repaint();
 		});
-		panelParking.setParking(parking.get(0));
-		panelParking.setBounds(10, 11, 751, 504);
-		frame.getContentPane().add(panelParking);
-
-		PanelTakeShip PanelTakeShip = new PanelTakeShip();
-		PanelTakeShip.setBorder(null);
-		PanelTakeShip.setBounds(771, 368, 203, 147);
-		frame.getContentPane().add(PanelTakeShip);
-		
-
 		
 		JButton btnParkingSt = new JButton("\u041F\u0440\u0438\u043F\u0430\u0440\u043A\u043E\u0432\u0430\u0442\u044C \u043A\u043E\u0440\u0430\u0431\u043B\u044C");
 		btnParkingSt.addActionListener(new ActionListener() {
@@ -146,7 +149,7 @@ public class FormParking {
 		frame.getContentPane().add(label_Place);
 		
 		JLabel label_pickup = new JLabel("\u0417\u0430\u0431\u0440\u0430\u0442\u044C \u043A\u043E\u0440\u0430\u0431\u043B\u044C:");
-		label_pickup.setBounds(771, 281, 91, 14);
+		label_pickup.setBounds(771, 281, 121, 14);
 		frame.getContentPane().add(label_pickup);
 		
 		JLabel label_lvl = new JLabel("\u0423\u0440\u043E\u0432\u043D\u0438:");

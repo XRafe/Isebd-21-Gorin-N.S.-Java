@@ -12,24 +12,14 @@ public class Parking<T extends ITransport> {
 	public int _maxCount;
 
 	protected int PictureWidth;
+	void getPictureWidth(int PictureWidth) {this.PictureWidth=PictureWidth;}
+	int setPictureWidth() {return this.PictureWidth;}
 
-	void getPictureWidth(int PictureWidth) {
-		this.PictureWidth = PictureWidth;
-	}
-
-	int setPictureWidth() {
-		return this.PictureWidth;
-	}
 
 	protected int PictureHeight;
+	void getPictureHeight(int PictureHeight) {this.PictureHeight=PictureHeight;}
+	int setPictureHeight() {return this.PictureHeight;}
 
-	void getPictureHeight(int PictureHeight) {
-		this.PictureHeight = PictureHeight;
-	}
-
-	int setPictureHeight() {
-		return this.PictureHeight;
-	}
 
 	private int _placeSizeWidth = 260;
 	private int _placeSizeHeight = 120;
@@ -84,8 +74,8 @@ public class Parking<T extends ITransport> {
 			}
 		}
 	}
-
-	private void DrawMarking(Graphics g) {
+	
+	public void DrawMarking(Graphics g) {
 		g.setColor(Color.BLUE);
 		g.drawRect(0, 0, (_places.size() / 5) * _placeSizeWidth, 480);
 		for (int i = 0; i < _places.size() / 5; i++) {

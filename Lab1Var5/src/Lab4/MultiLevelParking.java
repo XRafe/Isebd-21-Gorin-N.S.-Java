@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class MultiLevelParking {
 	ArrayList<Parking<ITransport>> hangarStages;
-	private final int countPlaces = 16;
+	private final int countPlaces = 12;
 	public MultiLevelParking(int countStages, int pictureWidth, int pictureHeight)
 	{
 		hangarStages = new ArrayList<Parking<ITransport>>();
