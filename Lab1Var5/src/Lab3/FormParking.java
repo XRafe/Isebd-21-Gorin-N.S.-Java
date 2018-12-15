@@ -20,6 +20,7 @@ public class FormParking {
 	private Parking<ITransport> parking;
 	private JTextField textField;
 	PanelParking panelParking = new PanelParking();
+	WaterCar WaterCar = new WaterCar();
 
 	/**
 	 * Launch the application.

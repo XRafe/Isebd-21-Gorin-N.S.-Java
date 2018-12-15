@@ -13,20 +13,20 @@ public abstract class Vehicle implements ITransport
     /// <summary>
     /// Ширина окна отрисовки
     /// </summary>
-    protected static int _pictureWidth;
+    protected int _pictureWidth;
     //Высота окна отрисовки
     protected static int _pictureHeight;
 
 
-    public static int MaxSpeed;
+    public int MaxSpeed;
     void getWheel(int MaxSpeed) {this.MaxSpeed=MaxSpeed;} 
     int setMaxSpeed() {return MaxSpeed;} 
 
-    public static float Weight;
+    public float Weight;
     void getWheel(float Weight) {this.Weight=Weight;} 
     float setWeight() {return Weight;} 
 
-    public static Color MainColor;
+    public Color MainColor;
     void getMainColor(Color MainColor) {this.MainColor=MainColor;} 
     Color setMainColor() {return MainColor;}
     
