@@ -31,9 +31,6 @@ public class Parking<T extends ITransport> {
 	private int _placeSizeWidth = 260;
 	private int _placeSizeHeight = 120;
 
-
-
-	
 	public Parking(int sizes, int pictureWidth, int pictureHeight) {
 		_places = new ArrayList<T>();
 		PictureWidth = pictureWidth;
@@ -47,7 +44,8 @@ public class Parking<T extends ITransport> {
 		for (int i = 0; i < _places.size(); i++) {
 			if (CheckFreePlace(i)) {
 				_places.add(i, ship);
-				_places.get(i).SetPosition(5 + i / 4 * _placeSizeWidth + 5, i % 4 * _placeSizeHeight + 60, PictureWidth, PictureHeight);
+				_places.get(i).SetPosition(5 + i / 4 * _placeSizeWidth + 5, i % 4 * _placeSizeHeight + 60, PictureWidth,
+						PictureHeight);
 				return i;
 			}
 		}

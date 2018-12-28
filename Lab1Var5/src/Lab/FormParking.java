@@ -3,7 +3,6 @@ package Lab;
 import java.awt.Color;
 import java.awt.EventQueue;
 
-
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
@@ -37,7 +36,6 @@ public class FormParking {
 			}
 		});
 	}
-	
 
 	/**
 	 * Create the application.
@@ -65,9 +63,9 @@ public class FormParking {
 		PanelTakeShip.setBorder(null);
 		PanelTakeShip.setBounds(771, 282, 203, 195);
 		frame.getContentPane().add(PanelTakeShip);
-		
-		
-		JButton btnParkingSt = new JButton("\u041F\u0440\u0438\u043F\u0430\u0440\u043A\u043E\u0432\u0430\u0442\u044C \u043A\u043E\u0440\u0430\u0431\u043B\u044C");
+
+		JButton btnParkingSt = new JButton(
+				"\u041F\u0440\u0438\u043F\u0430\u0440\u043A\u043E\u0432\u0430\u0442\u044C \u043A\u043E\u0440\u0430\u0431\u043B\u044C");
 		btnParkingSt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Color mainColor = JColorChooser.showDialog(null, "Choose a color", Color.GRAY);
@@ -82,8 +80,9 @@ public class FormParking {
 		});
 		btnParkingSt.setBounds(771, 13, 193, 43);
 		frame.getContentPane().add(btnParkingSt);
-		
-		JButton btnParkingTun = new JButton("\u041F\u0440\u0438\u043F\u0430\u0440\u043A\u043E\u0432\u0430\u0442\u044C\r\n\u0442\u044E\u043D\u0438\u043D\u0433 \u043A\u043E\u0440\u0430\u0431\u043B\u044C");
+
+		JButton btnParkingTun = new JButton(
+				"\u041F\u0440\u0438\u043F\u0430\u0440\u043A\u043E\u0432\u0430\u0442\u044C\r\n\u0442\u044E\u043D\u0438\u043D\u0433 \u043A\u043E\u0440\u0430\u0431\u043B\u044C");
 		btnParkingTun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Color mainColor = JColorChooser.showDialog(null, "Choose a color", Color.GRAY);
@@ -97,7 +96,6 @@ public class FormParking {
 		btnParkingTun.setToolTipText("");
 		btnParkingTun.setBounds(771, 70, 193, 43);
 		frame.getContentPane().add(btnParkingTun);
-		
 
 		JButton btnPickUp = new JButton("\u0417\u0430\u0431\u0440\u0430\u0442\u044C");
 		btnPickUp.addActionListener(new ActionListener() {
@@ -116,21 +114,20 @@ public class FormParking {
 		});
 		btnPickUp.setBounds(776, 248, 91, 23);
 		frame.getContentPane().add(btnPickUp);
-		
+
 		textField = new JTextField();
 		textField.setBounds(836, 217, 31, 20);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
-		
+
 		JLabel label_Place = new JLabel("\u041C\u0435\u0441\u0442\u043E:");
 		label_Place.setBounds(780, 220, 46, 14);
 		frame.getContentPane().add(label_Place);
-		
-		JLabel label_pickup = new JLabel("\u0417\u0430\u0431\u0440\u0430\u0442\u044C \u043A\u043E\u0440\u0430\u0431\u043B\u044C:");
+
+		JLabel label_pickup = new JLabel(
+				"\u0417\u0430\u0431\u0440\u0430\u0442\u044C \u043A\u043E\u0440\u0430\u0431\u043B\u044C:");
 		label_pickup.setBounds(776, 183, 91, 14);
 		frame.getContentPane().add(label_pickup);
-		
 
-		
 	}
 }
