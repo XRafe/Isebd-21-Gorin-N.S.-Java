@@ -15,5 +15,4 @@ public class PanelParking extends JPanel {
 		parking = parking2;
 	}
 
-
 }

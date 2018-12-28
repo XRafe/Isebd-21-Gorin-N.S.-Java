@@ -7,9 +7,9 @@ import javax.swing.JPanel;
 public class PanelTakeShip extends JPanel {
 
 	ITransport WaterCar;
-	
+
 	public void setShip(ITransport WaterCar2) {
-		WaterCar=WaterCar2;
+		WaterCar = WaterCar2;
 	}
 
 	public void paint(Graphics g) {
@@ -18,6 +18,5 @@ public class PanelTakeShip extends JPanel {
 			WaterCar.DrawShip(g);
 		}
 	}
-
 
 }

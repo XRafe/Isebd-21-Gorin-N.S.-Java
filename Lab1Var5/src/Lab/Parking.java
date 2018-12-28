@@ -8,25 +8,32 @@ import java.util.HashMap;
 public class Parking<T extends ITransport> {
 
 	public HashMap<Integer, T> _places;
-	
+
 	public int _maxCount;
 
 	protected int PictureWidth;
-	void getPictureWidth(int PictureWidth) {this.PictureWidth=PictureWidth;}
-	int setPictureWidth() {return this.PictureWidth;}
 
+	void getPictureWidth(int PictureWidth) {
+		this.PictureWidth = PictureWidth;
+	}
+
+	int setPictureWidth() {
+		return this.PictureWidth;
+	}
 
 	protected int PictureHeight;
-	void getPictureHeight(int PictureHeight) {this.PictureHeight=PictureHeight;}
-	int setPictureHeight() {return this.PictureHeight;}
 
+	void getPictureHeight(int PictureHeight) {
+		this.PictureHeight = PictureHeight;
+	}
+
+	int setPictureHeight() {
+		return this.PictureHeight;
+	}
 
 	private int _placeSizeWidth = 260;
 	private int _placeSizeHeight = 120;
 
-
-
-	
 	public Parking(int sizes, int pictureWidth, int pictureHeight) {
 		_maxCount = sizes;
 		_places = new HashMap<Integer, T>();
@@ -36,14 +43,13 @@ public class Parking<T extends ITransport> {
 
 	public int addoperator(T ship) {
 		if (_places.size() == _maxCount) {
-            return -1;
-        }
-		for (int i = 0; i < _maxCount; i++)
-		{
-			if (CheckFreePlace(i))
-			{
-				_places.put(i,ship);
-				_places.get(i).SetPosition(5 + i / 4 * _placeSizeWidth + 5, i % 4 * _placeSizeHeight + 60, PictureWidth, PictureHeight);
+			return -1;
+		}
+		for (int i = 0; i < _maxCount; i++) {
+			if (CheckFreePlace(i)) {
+				_places.put(i, ship);
+				_places.get(i).SetPosition(5 + i / 4 * _placeSizeWidth + 5, i % 4 * _placeSizeHeight + 60, PictureWidth,
+						PictureHeight);
 				return i;
 			}
 		}
@@ -52,14 +58,13 @@ public class Parking<T extends ITransport> {
 	}
 
 	public T removeoperator(int index) {
-		if (!CheckFreePlace(index))
-		{
+		if (!CheckFreePlace(index)) {
 			T ship = _places.get(index);
 			_places.remove(index);
 			return ship;
 		}
 		return null;
-	
+
 	}
 
 	private boolean CheckFreePlace(int index) {
@@ -74,7 +79,7 @@ public class Parking<T extends ITransport> {
 			}
 		}
 	}
-	
+
 	public void DrawMarking(Graphics g) {
 		g.setColor(Color.BLUE);
 		g.drawRect(0, 0, (_places.size() / 5) * _placeSizeWidth, 480);
