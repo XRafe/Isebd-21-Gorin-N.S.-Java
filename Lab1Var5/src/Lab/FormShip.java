@@ -1,4 +1,4 @@
-package Lab3;
+package Lab;
 
 import java.awt.EventQueue;
 
