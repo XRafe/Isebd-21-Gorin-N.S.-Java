@@ -1,4 +1,4 @@
-package Lab2;
+package Lab;
 
 public enum Direction
     {
