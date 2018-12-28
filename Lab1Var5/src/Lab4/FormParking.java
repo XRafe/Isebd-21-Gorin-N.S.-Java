@@ -23,6 +23,7 @@ public class FormParking {
 	private JFrame frame;
 	private MultiLevelParking parking;
 	private final int countLevel = 3;
+	WaterCar WaterCar = new WaterCar();
 	
 	private JTextField textField;
 	PanelParking panelParking = new PanelParking();
