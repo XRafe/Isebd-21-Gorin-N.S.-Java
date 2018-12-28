@@ -3,147 +3,133 @@ package Lab;
 import java.awt.Color;
 import java.awt.Graphics;
 
+public class Ship {
 
+	static int _startPosX;
 
+	static int _startPosY;
 
+	private static int _pictureWidth;
 
+	private static int _pictureHeight;
 
-    public class Ship
-    {
-        
-        static int _startPosX;
+	private final static int shipWidth = 240;
 
+	private final static int shipHeight = 30;
 
-        static int _startPosY;
+	public static int MaxSpeed;
 
+	void getMaxSpeed(int MaxSpeed) {
+		Ship.MaxSpeed = MaxSpeed;
+	}
 
-        private static int _pictureWidth;
+	int setMaxSpeed() {
+		return Ship.MaxSpeed;
+	}
 
+	public static float Weight;
 
-        private static int _pictureHeight;
+	void getWeight(float Weight) {
+		Ship.Weight = Weight;
+	}
 
+	float setWeight() {
+		return Ship.Weight;
+	}
 
-        private final static int shipWidth = 240;
+	public static Color MainColor;
 
+	void getMainColor(Color MainColor) {
+		Ship.MainColor = MainColor;
+	}
 
-        private final static int shipHeight = 30;
+	Color setMainColor() {
+		return Ship.MainColor;
+	}
 
+	public Color DopColor;
 
-        public static int MaxSpeed;
-        void getMaxSpeed(int MaxSpeed) {Ship.MaxSpeed=MaxSpeed;} 
-        int setMaxSpeed() {return Ship.MaxSpeed;}
+	void getDopColor(Color DopColor) {
+		this.DopColor = DopColor;
+	}
 
-        public static float Weight;
-        void getWeight(float Weight) {Ship.Weight=Weight;} 
-        float setWeight() {return Ship.Weight;}
+	Color setDopColor() {
+		return this.DopColor;
+	}
 
+	public Ship() {
 
-        public static Color MainColor;
-        void getMainColor(Color MainColor) {Ship.MainColor=MainColor;} 
-        Color setMainColor() {return Ship.MainColor;}
+	}
 
+	public Ship(int maxSpeed, float weight, Color mainColor, Color dopColor) {
+		MaxSpeed = maxSpeed;
+		Weight = weight;
+		MainColor = mainColor;
+		DopColor = dopColor;
+	}
 
-        public Color DopColor;
-        void getDopColor(Color DopColor) {this.DopColor=DopColor;} 
-        Color setDopColor() {return this.DopColor;}
+	public void SetPosition(int x, int y, int width, int height) {
+		_startPosX = x;
+		_startPosY = y;
+		_pictureWidth = width;
+		_pictureHeight = height;
+	}
 
-        public Ship()
-        {
-         
-        }
-        
-        public Ship(int maxSpeed, float weight, Color mainColor, Color dopColor)
-        {
-            MaxSpeed = maxSpeed;
-            Weight = weight;
-            MainColor = mainColor;
-            DopColor = dopColor;
-        }
+	public static void MoveTransport(Direction direction) {
+		float step = MaxSpeed * 100 / Weight;
+		switch (direction) {
+		// вправо
+		case Right:
+			if (_startPosX + step < _pictureWidth - shipWidth) {
+				_startPosX += step;
+			}
+			break;
+		// влево
+		case Left:
+			if (_startPosX - step > 0) {
+				_startPosX -= step;
+			}
+			break;
+		// вверх
+		case Up:
+			if (_startPosY - step > 0) {
+				_startPosY -= step;
+			}
+			break;
+		// вниз
+		case Down:
+			if (_startPosY + step < _pictureHeight - shipHeight) {
+				_startPosY += step;
+			}
+			break;
+		}
 
+	}
 
-        public void SetPosition(int x, int y, int width, int height)
-        {
-            _startPosX = x;
-            _startPosY = y;
-            _pictureWidth = width;
-            _pictureHeight = height;
-        }
+	public void DrawShip(Graphics g) {
 
+		int yline = -5;
 
-        public static void MoveTransport(Direction direction)
-        {
-            float step = MaxSpeed * 100 / Weight;
-            switch (direction)
-            {
-                // вправо
-                case Right:
-                    if (_startPosX + step < _pictureWidth - shipWidth)
-                    {
-                        _startPosX += step;
-                    }
-                    break;
-                //влево
-                case Left:
-                    if (_startPosX - step > 0)
-                    {
-                        _startPosX -= step;
-                    }
-                    break;
-                //вверх
-                case Up:
-                    if (_startPosY - step > 0)
-                    {
-                        _startPosY -= step;
-                    }
-                    break;
-                //вниз
-                case Down:
-                    if (_startPosY + step < _pictureHeight - shipHeight)
-                    {
-                        _startPosY += step;
-                    }
-                    break;
-            }
-            
-            
-        }
-        
-    	public void DrawShip(Graphics g) {
+		if (FormShip.DrawShip) {
+			g.setColor(Color.GREEN);
+			g.fillRect(Ship._startPosX + 80, Ship._startPosY - 6, 120, 40);
+			g.setColor(Ship.MainColor);
+			g.fillRect(Ship._startPosX + 90, Ship._startPosY - 26, 90, 20);
+			g.setColor(Color.RED);
+			g.fillRect(Ship._startPosX + 110, Ship._startPosY - 56, 30, 30);
+			g.setColor(Color.GREEN);
+			g.drawLine(Ship._startPosX + 80, Ship._startPosY + 30, Ship._startPosX + 30, Ship._startPosY - 30);
+			while (yline < 35) {
+				g.drawLine(Ship._startPosX + 80, Ship._startPosY + yline, Ship._startPosX + 30, Ship._startPosY - 30);
 
-    		 int yline = -5;
+				g.drawLine(Ship._startPosX + 200, Ship._startPosY + yline, Ship._startPosX + 250, Ship._startPosY - 30);
+				yline++;
+			}
 
+			g.drawLine(Ship._startPosX + 200, Ship._startPosY + 30, Ship._startPosX + 250, Ship._startPosY - 30);
 
-    		 if (FormShip.DrawShip) {
-            	 g.setColor(Color.GREEN);
-                 g.fillRect(Ship._startPosX + 80, Ship._startPosY - 6, 120, 40);
-                 g.setColor(Ship.MainColor);
-                 g.fillRect(Ship._startPosX + 90, Ship._startPosY - 26, 90, 20);
-                 g.setColor(Color.RED);
-                 g.fillRect(Ship._startPosX + 110, Ship._startPosY - 56, 30, 30);
-                 g.setColor(Color.GREEN);
-                 g.drawLine(Ship._startPosX + 80, Ship._startPosY + 30, Ship._startPosX + 30, Ship._startPosY - 30);
-                 while (yline < 35)
-                 {
-                     g.drawLine(Ship._startPosX + 80, Ship._startPosY + yline, Ship._startPosX + 30, Ship._startPosY - 30);
+		}
 
-                     g.drawLine(Ship._startPosX + 200, Ship._startPosY + yline, Ship._startPosX + 250, Ship._startPosY - 30);
-                     yline++;
-                 }
+	}
 
-                 g.drawLine(Ship._startPosX + 200, Ship._startPosY + 30, Ship._startPosX + 250, Ship._startPosY - 30);
-
-    		 }
-             
-
-                
-    		
-    	
-             
-    	}
-
-
-     }
-    
-    
-	
-
+}
