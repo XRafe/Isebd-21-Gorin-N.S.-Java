@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 public class PanelParking extends JPanel {
 	Parking<ITransport> parking;
 
+
 	public void paint(Graphics g) {
 		super.paint(g);
 		parking.Draw(g);

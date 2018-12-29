@@ -29,25 +29,25 @@ public class Ship extends Vehicle {
 	public void MoveTransport(Direction direction) {
 		float step = MaxSpeed * 100 / Weight;
 		switch (direction) {
-		// вправо
+		// пїЅпїЅпїЅпїЅпїЅпїЅ
 		case Right:
 			if (_startPosX + step < _pictureWidth - shipWidth) {
 				_startPosX += step;
 			}
 			break;
-		// влево
+		// пїЅпїЅпїЅпїЅпїЅ
 		case Left:
 			if (_startPosX - step > 0) {
 				_startPosX -= step;
 			}
 			break;
-		// вверх
+		// пїЅпїЅпїЅпїЅпїЅ
 		case Up:
 			if (_startPosY - step > 0) {
 				_startPosY -= step;
 			}
 			break;
-		// вниз
+		// пїЅпїЅпїЅпїЅ
 		case Down:
 			if (_startPosY + step < _pictureHeight - shipHeight) {
 				_startPosY += step;
@@ -79,3 +79,4 @@ public class Ship extends Vehicle {
 	}
 
 }
+

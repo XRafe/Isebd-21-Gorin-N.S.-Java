@@ -9,10 +9,10 @@ public abstract class Vehicle implements ITransport {
 
 	protected int _startPosY;
 	/// <summary>
-	/// Ширина окна отрисовки
+	/// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	/// </summary>
 	protected int _pictureWidth;
-	// Высота окна отрисовки
+	// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	protected int _pictureHeight;
 
 	public int MaxSpeed;

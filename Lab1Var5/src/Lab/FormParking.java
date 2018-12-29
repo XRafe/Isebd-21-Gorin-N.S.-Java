@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
 
+
 public class FormParking {
 
 	private JFrame frame;
@@ -36,7 +37,6 @@ public class FormParking {
 				try {
 					FormParking window = new FormParking();
 					window.frame.setVisible(true);
-
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -75,7 +75,7 @@ public class FormParking {
 
 		DefaultListModel listModel = new DefaultListModel();
 		for (int i = 1; i <= countLevel; i++) {
-			listModel.addElement("Уровень " + i);
+			listModel.addElement("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ " + i);
 		}
 		JList list = new JList(listModel);
 		list.setBounds(771, 36, 191, 126);
@@ -86,6 +86,7 @@ public class FormParking {
 			panelParking.setParking(parking.get(list.getSelectedIndex()));
 			panelParking.repaint();
 		});
+
 
 		JButton btnParkingSt = new JButton(
 				"\u041F\u0440\u0438\u043F\u0430\u0440\u043A\u043E\u0432\u0430\u0442\u044C \u043A\u043E\u0440\u0430\u0431\u043B\u044C");
