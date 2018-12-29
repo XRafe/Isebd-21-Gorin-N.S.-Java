@@ -12,12 +12,13 @@ import java.util.Random;
 import java.awt.event.ActionEvent;
 
 public class FormShip {
-
+  
 	private JFrame frame;
 	private JPanel Panel;
 	Ship Ship = new Ship();
 
 	protected static boolean DrawShip = false;
+
 
 	/**
 	 * Launch the application.
@@ -69,6 +70,7 @@ public class FormShip {
 				WaterCar.Decoreation = false;
 				WaterCar.Whistle = false;
 				Ship = new Ship(rnd.nextInt(200) + 100, rnd.nextInt(1000) + 1000, Color.BLUE);
+
 				Ship.SetPosition(rnd.nextInt(90) + 100, rnd.nextInt(90) + 100, Panel.getWidth(), Panel.getHeight());
 				DrawShip = true;
 				Draw();
@@ -135,5 +137,6 @@ public class FormShip {
 		});
 		btnCreateTun.setBounds(547, 80, 158, 60);
 		frame.getContentPane().add(btnCreateTun);
+
 	}
 }

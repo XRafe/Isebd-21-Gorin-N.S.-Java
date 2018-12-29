@@ -9,5 +9,6 @@ public class Panel extends JPanel {
 	public void paint(Graphics g) {
 		super.paint(g);
 		WaterCar.DrawShip(g);
+
 	}
 }
