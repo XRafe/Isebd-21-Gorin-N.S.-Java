@@ -1,4 +1,3 @@
-
 package Lab;
 
 import java.awt.EventQueue;

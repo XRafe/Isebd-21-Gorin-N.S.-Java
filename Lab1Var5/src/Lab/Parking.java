@@ -3,10 +3,13 @@ package Lab;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Parking<T extends ITransport> {
 
-	public ArrayList<T> _places;
+	public HashMap<Integer, T> _places;
+
+	public int _maxCount;
 
 	protected int PictureWidth;
 
@@ -32,40 +35,40 @@ public class Parking<T extends ITransport> {
 	private int _placeSizeHeight = 120;
 
 	public Parking(int sizes, int pictureWidth, int pictureHeight) {
-		_places = new ArrayList<T>();
+		_maxCount = sizes;
+		_places = new HashMap<Integer, T>();
 		PictureWidth = pictureWidth;
 		PictureHeight = pictureHeight;
-		for (int i = 0; i < sizes; i++) {
-			_places.add(null);
-		}
 	}
 
 	public int addoperator(T ship) {
-		for (int i = 0; i < _places.size(); i++) {
+		if (_places.size() == _maxCount) {
+			return -1;
+		}
+		for (int i = 0; i < _maxCount; i++) {
 			if (CheckFreePlace(i)) {
-				_places.add(i, ship);
+				_places.put(i, ship);
 				_places.get(i).SetPosition(5 + i / 4 * _placeSizeWidth + 5, i % 4 * _placeSizeHeight + 60, PictureWidth,
 						PictureHeight);
 				return i;
 			}
 		}
 		return -1;
+
 	}
 
 	public T removeoperator(int index) {
-		if (index < 0 || index > _places.size()) {
-			return null;
-		}
 		if (!CheckFreePlace(index)) {
 			T ship = _places.get(index);
-			_places.set(index, null);
+			_places.remove(index);
 			return ship;
 		}
 		return null;
+
 	}
 
 	private boolean CheckFreePlace(int index) {
-		return _places.get(index) == null;
+		return !_places.containsKey(index);
 	}
 
 	public void Draw(Graphics g) {
@@ -77,7 +80,7 @@ public class Parking<T extends ITransport> {
 		}
 	}
 
-	private void DrawMarking(Graphics g) {
+	public void DrawMarking(Graphics g) {
 		g.setColor(Color.BLUE);
 		g.drawRect(0, 0, (_places.size() / 5) * _placeSizeWidth, 480);
 		for (int i = 0; i < _places.size() / 5; i++) {

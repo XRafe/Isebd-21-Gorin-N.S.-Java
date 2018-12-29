@@ -5,19 +5,17 @@ import java.awt.Graphics;
 
 public abstract class Vehicle implements ITransport {
 
-
 	protected int _startPosX;
 
 	protected int _startPosY;
 	/// <summary>
-	/// Øèðèíà îêíà îòðèñîâêè
+	/// ������ ���� ���������
 	/// </summary>
 	protected int _pictureWidth;
-	// Âûñîòà îêíà îòðèñîâêè
-	protected static int _pictureHeight;
+	// ������ ���� ���������
+	protected int _pictureHeight;
 
 	public int MaxSpeed;
-
 
 	void getWheel(int MaxSpeed) {
 		this.MaxSpeed = MaxSpeed;
@@ -29,7 +27,6 @@ public abstract class Vehicle implements ITransport {
 
 	public float Weight;
 
-
 	void getWheel(float Weight) {
 		this.Weight = Weight;
 	}
@@ -39,7 +36,6 @@ public abstract class Vehicle implements ITransport {
 	}
 
 	public Color MainColor;
-
 
 	void getMainColor(Color MainColor) {
 		this.MainColor = MainColor;
