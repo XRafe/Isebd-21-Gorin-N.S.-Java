@@ -5,45 +5,14 @@ import java.awt.Graphics;
 
 public class WaterCar extends Ship {
 
-	public static Color DopColor;
 
-	void getDopColor(Color DopColor) {
-		WaterCar.DopColor = DopColor;
-	}
+	public Color DopColor;
 
-	Color setDopColor() {
-		return WaterCar.DopColor;
-	}
+	public boolean Wheel;
 
-	public static boolean Wheel;
+	public boolean Decoreation;
 
-	void getWheel(boolean Wheel) {
-		WaterCar.Wheel = Wheel;
-	}
-
-	boolean setWheel() {
-		return WaterCar.Wheel;
-	}
-
-	public static boolean Decoreation;
-
-	void getDecoreation(boolean Decoreation) {
-		WaterCar.Decoreation = Decoreation;
-	}
-
-	boolean setDecoreation() {
-		return WaterCar.Decoreation;
-	}
-
-	public static boolean Whistle;
-
-	void getWhistle(boolean Whistle) {
-		WaterCar.Whistle = Whistle;
-	}
-
-	boolean setWhistle() {
-		return WaterCar.Whistle;
-	}
+	public boolean Whistle;
 
 	public WaterCar() {
 
@@ -68,7 +37,9 @@ public class WaterCar extends Ship {
 		if (Decoreation) {
 			while (xline < 80) {
 				g.setColor(Color.GREEN);
-				g.drawLine(_startPosX + 100 + xline, _startPosY - 20, _startPosX + 80 + xline, _startPosY + 25);
+
+				g.drawLine(_startPosX + 60 + xline, _startPosY + 5, _startPosX + 40 + xline, _startPosY + 50);
+
 				xline += 5;
 
 			}
@@ -78,7 +49,8 @@ public class WaterCar extends Ship {
 
 		if (Whistle) {
 			while (yline < 35) {
-				g.drawLine(_startPosX + 170, _startPosY - 15, _startPosX + 210, _startPosY - 35 + yline);
+				g.drawLine(_startPosX + 130, _startPosY + 10, _startPosX + 170, _startPosY - 10 + yline);
+
 				yline += 1;
 
 			}
@@ -86,7 +58,8 @@ public class WaterCar extends Ship {
 		if (Wheel) {
 
 			g.setColor(DopColor);
-			g.fillOval(_startPosX + 70, _startPosY - 10, 60, 60);
+			g.fillOval(_startPosX + 30, _startPosY + 15, 60, 60);
+
 		}
 
 	}

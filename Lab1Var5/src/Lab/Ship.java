@@ -3,7 +3,6 @@ package Lab;
 import java.awt.Color;
 import java.awt.Graphics;
 
-
 public class Ship extends Vehicle {
 
 	protected final int shipWidth = 240;
@@ -13,7 +12,6 @@ public class Ship extends Vehicle {
 	public Ship() {
 
 	}
-
 
 	public Ship(int maxSpeed, float weight, Color mainColor) {
 		MaxSpeed = maxSpeed;
@@ -29,61 +27,54 @@ public class Ship extends Vehicle {
 	}
 
 	public void MoveTransport(Direction direction) {
-
 		float step = MaxSpeed * 100 / Weight;
 		switch (direction) {
-		// âïðàâî
+		// ������
 		case Right:
 			if (_startPosX + step < _pictureWidth - shipWidth) {
 				_startPosX += step;
 			}
 			break;
-		// âëåâî
+		// �����
 		case Left:
 			if (_startPosX - step > 0) {
 				_startPosX -= step;
 			}
 			break;
-		// ââåðõ
+		// �����
 		case Up:
 			if (_startPosY - step > 0) {
 				_startPosY -= step;
 			}
 			break;
-		// âíèç
+		// ����
 		case Down:
 			if (_startPosY + step < _pictureHeight - shipHeight) {
 				_startPosY += step;
 			}
 			break;
 		}
-
 	}
 
 	public void DrawShip(Graphics g) {
 
 		int yline = -5;
 
+		g.setColor(Color.GREEN);
+		g.fillRect(_startPosX + 40, _startPosY + 19, 120, 40);
+		g.setColor(MainColor);
+		g.fillRect(_startPosX + 50, _startPosY - 1, 90, 20);
+		g.setColor(Color.RED);
+		g.fillRect(_startPosX + 70, _startPosY - 31, 30, 30);
+		g.setColor(Color.GREEN);
+		while (yline < 35) {
+			g.drawLine(_startPosX + 40, _startPosY + yline + 25, _startPosX - 10, _startPosY - 5);
 
-		if (FormShip.DrawShip) {
-			g.setColor(Color.GREEN);
-			g.fillRect(Ship._startPosX + 80, Ship._startPosY - 6, 120, 40);
-			g.setColor(Ship.MainColor);
-			g.fillRect(Ship._startPosX + 90, Ship._startPosY - 26, 90, 20);
-			g.setColor(Color.RED);
-			g.fillRect(Ship._startPosX + 110, Ship._startPosY - 56, 30, 30);
-			g.setColor(Color.GREEN);
-			g.drawLine(Ship._startPosX + 80, Ship._startPosY + 30, Ship._startPosX + 30, Ship._startPosY - 30);
-			while (yline < 35) {
-				g.drawLine(Ship._startPosX + 80, Ship._startPosY + yline, Ship._startPosX + 30, Ship._startPosY - 30);
-
-				g.drawLine(Ship._startPosX + 200, Ship._startPosY + yline, Ship._startPosX + 250, Ship._startPosY - 30);
-				yline++;
-			}
-
-			g.drawLine(Ship._startPosX + 200, Ship._startPosY + 30, Ship._startPosX + 250, Ship._startPosY - 30);
-
+			g.drawLine(_startPosX + 160, _startPosY + yline + 25, _startPosX + 210, _startPosY - 5);
+			yline++;
 		}
+
+		g.drawLine(_startPosX + 160, _startPosY + 55, _startPosX + 210, _startPosY - 5);
 
 	}
 

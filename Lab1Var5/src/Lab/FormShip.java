@@ -1,3 +1,4 @@
+
 package Lab;
 
 import java.awt.EventQueue;
@@ -12,13 +13,10 @@ import java.util.Random;
 import java.awt.event.ActionEvent;
 
 public class FormShip {
-  
+
 	private JFrame frame;
-	private JPanel Panel;
+	private JPanel PanelS;
 	Ship Ship = new Ship();
-
-	protected static boolean DrawShip = false;
-
 
 	/**
 	 * Launch the application.
@@ -38,7 +36,7 @@ public class FormShip {
 
 	private void Draw() {
 
-		Panel.repaint();
+		PanelS.repaint();
 	}
 
 	/**
@@ -57,24 +55,20 @@ public class FormShip {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		Panel = new Panel();
-		Panel.setBackground(Color.WHITE);
-		Panel.setBounds(10, 11, 527, 432);
-		frame.getContentPane().add(Panel);
+		PanelS = new Panel();
+		PanelS.setBackground(Color.WHITE);
+		PanelS.setBounds(10, 11, 527, 432);
+		frame.getContentPane().add(PanelS);
 
 		JButton btnCreate = new JButton("Create");
 		btnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Random rnd = new Random();
-				WaterCar.Wheel = false;
-				WaterCar.Decoreation = false;
-				WaterCar.Whistle = false;
-				Ship = new Ship(rnd.nextInt(200) + 100, rnd.nextInt(1000) + 1000, Color.BLUE);
+				Panel.ship = new Ship(rnd.nextInt(200) + 100, rnd.nextInt(1000) + 1000, Color.GRAY);
 
-				Ship.SetPosition(rnd.nextInt(90) + 100, rnd.nextInt(90) + 100, Panel.getWidth(), Panel.getHeight());
-				DrawShip = true;
+				Panel.ship.SetPosition(rnd.nextInt(90) + 10, rnd.nextInt(90) + 60, PanelS.getWidth(),
+						PanelS.getHeight());
 				Draw();
-
 			}
 		});
 		btnCreate.setBounds(547, 11, 158, 60);
@@ -128,15 +122,16 @@ public class FormShip {
 		btnCreateTun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Random rnd = new Random();
-				WaterCar WaterCar = new WaterCar(rnd.nextInt(200) + 100, rnd.nextInt(1000) + 1000, Color.BLUE,
-						Color.ORANGE, true, true, true);
-				WaterCar.SetPosition(rnd.nextInt(90) + 100, rnd.nextInt(90) + 100, Panel.getWidth(), Panel.getHeight());
-				DrawShip = true;
+
+				Panel.ship = new WaterCar(rnd.nextInt(200) + 100, rnd.nextInt(1000) + 1000, Color.GRAY, Color.BLUE,
+						true, true, true);
+
+				Panel.ship.SetPosition(rnd.nextInt(90) + 10, rnd.nextInt(90) + 60, PanelS.getWidth(),
+						PanelS.getHeight());
 				Draw();
 			}
 		});
 		btnCreateTun.setBounds(547, 80, 158, 60);
 		frame.getContentPane().add(btnCreateTun);
-
 	}
 }
