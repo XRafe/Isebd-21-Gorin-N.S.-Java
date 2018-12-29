@@ -12,11 +12,13 @@ import java.util.Random;
 import java.awt.event.ActionEvent;
 
 public class FormShip {
-	public Ship Ship;
-
-	public static boolean DrawShip = false;
-	JFrame frame;
+  
+	private JFrame frame;
 	private JPanel Panel;
+	Ship Ship = new Ship();
+
+	protected static boolean DrawShip = false;
+
 
 	/**
 	 * Launch the application.
@@ -64,7 +66,11 @@ public class FormShip {
 		btnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Random rnd = new Random();
-				Ship = new Ship(rnd.nextInt(200) + 100, rnd.nextInt(1000) + 1000, Color.BLUE, Color.BLUE);
+				WaterCar.Wheel = false;
+				WaterCar.Decoreation = false;
+				WaterCar.Whistle = false;
+				Ship = new Ship(rnd.nextInt(200) + 100, rnd.nextInt(1000) + 1000, Color.BLUE);
+
 				Ship.SetPosition(rnd.nextInt(90) + 100, rnd.nextInt(90) + 100, Panel.getWidth(), Panel.getHeight());
 				DrawShip = true;
 				Draw();
@@ -117,5 +123,20 @@ public class FormShip {
 		btnD.setIcon(new ImageIcon("C:\\Users\\\u0421\u0435\u0440\u0433\u0435\u0439\\Desktop\\down.png"));
 		btnD.setBounds(593, 365, 47, 47);
 		frame.getContentPane().add(btnD);
+
+		JButton btnCreateTun = new JButton("CreateTun");
+		btnCreateTun.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Random rnd = new Random();
+				WaterCar WaterCar = new WaterCar(rnd.nextInt(200) + 100, rnd.nextInt(1000) + 1000, Color.BLUE,
+						Color.ORANGE, true, true, true);
+				WaterCar.SetPosition(rnd.nextInt(90) + 100, rnd.nextInt(90) + 100, Panel.getWidth(), Panel.getHeight());
+				DrawShip = true;
+				Draw();
+			}
+		});
+		btnCreateTun.setBounds(547, 80, 158, 60);
+		frame.getContentPane().add(btnCreateTun);
+
 	}
 }

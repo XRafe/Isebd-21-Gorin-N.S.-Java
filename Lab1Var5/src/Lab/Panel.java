@@ -4,12 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Panel extends JPanel {
-
-	Ship Ship = new Ship();
+	WaterCar WaterCar = new WaterCar();
 
 	public void paint(Graphics g) {
 		super.paint(g);
-		Ship.DrawShip(g);
+		WaterCar.DrawShip(g);
 
 	}
 }

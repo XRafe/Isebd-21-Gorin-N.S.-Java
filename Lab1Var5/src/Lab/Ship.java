@@ -3,69 +3,22 @@ package Lab;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Ship {
 
-	static int _startPosX;
+public class Ship extends Vehicle {
 
-	static int _startPosY;
+	protected final int shipWidth = 240;
 
-	private static int _pictureWidth;
-
-	private static int _pictureHeight;
-
-	private final static int shipWidth = 240;
-
-	private final static int shipHeight = 30;
-
-	public static int MaxSpeed;
-
-	void getMaxSpeed(int MaxSpeed) {
-		Ship.MaxSpeed = MaxSpeed;
-	}
-
-	int setMaxSpeed() {
-		return Ship.MaxSpeed;
-	}
-
-	public static float Weight;
-
-	void getWeight(float Weight) {
-		Ship.Weight = Weight;
-	}
-
-	float setWeight() {
-		return Ship.Weight;
-	}
-
-	public static Color MainColor;
-
-	void getMainColor(Color MainColor) {
-		Ship.MainColor = MainColor;
-	}
-
-	Color setMainColor() {
-		return Ship.MainColor;
-	}
-
-	public Color DopColor;
-
-	void getDopColor(Color DopColor) {
-		this.DopColor = DopColor;
-	}
-
-	Color setDopColor() {
-		return this.DopColor;
-	}
+	protected final int shipHeight = 60;
 
 	public Ship() {
 
 	}
 
-	public Ship(int maxSpeed, float weight, Color mainColor, Color dopColor) {
+
+	public Ship(int maxSpeed, float weight, Color mainColor) {
 		MaxSpeed = maxSpeed;
 		Weight = weight;
 		MainColor = mainColor;
-		DopColor = dopColor;
 	}
 
 	public void SetPosition(int x, int y, int width, int height) {
@@ -75,28 +28,29 @@ public class Ship {
 		_pictureHeight = height;
 	}
 
-	public static void MoveTransport(Direction direction) {
+	public void MoveTransport(Direction direction) {
+
 		float step = MaxSpeed * 100 / Weight;
 		switch (direction) {
-		// ‚Ô‡‚Ó
+		// √¢√Ø√∞√†√¢√Æ
 		case Right:
 			if (_startPosX + step < _pictureWidth - shipWidth) {
 				_startPosX += step;
 			}
 			break;
-		// ‚ÎÂ‚Ó
+		// √¢√´√•√¢√Æ
 		case Left:
 			if (_startPosX - step > 0) {
 				_startPosX -= step;
 			}
 			break;
-		// ‚‚Âı
+		// √¢√¢√•√∞√µ
 		case Up:
 			if (_startPosY - step > 0) {
 				_startPosY -= step;
 			}
 			break;
-		// ‚ÌËÁ
+		// √¢√≠√®√ß
 		case Down:
 			if (_startPosY + step < _pictureHeight - shipHeight) {
 				_startPosY += step;
@@ -109,6 +63,7 @@ public class Ship {
 	public void DrawShip(Graphics g) {
 
 		int yline = -5;
+
 
 		if (FormShip.DrawShip) {
 			g.setColor(Color.GREEN);
