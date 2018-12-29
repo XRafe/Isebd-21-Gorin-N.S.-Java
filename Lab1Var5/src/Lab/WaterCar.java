@@ -5,6 +5,7 @@ import java.awt.Graphics;
 
 public class WaterCar extends Ship {
 
+
 	public Color DopColor;
 
 	public boolean Wheel;
@@ -36,7 +37,9 @@ public class WaterCar extends Ship {
 		if (Decoreation) {
 			while (xline < 80) {
 				g.setColor(Color.GREEN);
+
 				g.drawLine(_startPosX + 60 + xline, _startPosY + 5, _startPosX + 40 + xline, _startPosY + 50);
+
 				xline += 5;
 
 			}
@@ -47,6 +50,7 @@ public class WaterCar extends Ship {
 		if (Whistle) {
 			while (yline < 35) {
 				g.drawLine(_startPosX + 130, _startPosY + 10, _startPosX + 170, _startPosY - 10 + yline);
+
 				yline += 1;
 
 			}
@@ -55,6 +59,7 @@ public class WaterCar extends Ship {
 
 			g.setColor(DopColor);
 			g.fillOval(_startPosX + 30, _startPosY + 15, 60, 60);
+
 		}
 
 	}
